@@ -19,6 +19,7 @@ print(f"Kafka server: {KAFKA_BOOTSTRAP_SERVERS}")
 print(f"Security protocol: {KAFKA_SECURITY_PROTOCOL}")
 print(f"SASL mechanism: {KAFKA_SASL_MECHANISM}")
 print(f"SASL username: {KAFKA_SASL_USERNAME}")
+print(f"SASL password configured: {bool(KAFKA_SASL_PASSWORD)}")
 print(f"SSL CA file: {KAFKA_SSL_CAFILE}")
 
 try:
