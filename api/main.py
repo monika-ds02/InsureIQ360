@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+import threading
+from api.kafka_consumer import run_consumer
 
 from api.auth import (
     create_access_token,
@@ -8,6 +10,19 @@ from api.auth import (
 )
 
 app = FastAPI(title="InsureIQ360 API")
+# =========================================================
+# KAFKA CONSUMER
+# =========================================================
+
+def start_kafka_consumer():
+    thread = threading.Thread(
+        target=run_consumer,
+        daemon=True
+    )
+    thread.start()
+
+
+start_kafka_consumer()
 
 
 # =========================================================
