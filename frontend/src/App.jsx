@@ -1,14 +1,11 @@
 
 import { useState } from "react";
 
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/sidebar";
+import Dashboard from "./pages/dashboard";
 import Claims from "./pages/claims";
-import Policies from "./pages/Policies";
-import InvestigatorWorkbench from "./pages/InvestigatorWorkbench";
-import ReserveForecast from "./pages/ReserveForecast";
-import Alerts from "./pages/Alerts";
-import Login from "./pages/Login";
+import Policies from "./pages/policies";
+import Login from "./pages/login";
 import DataQuality from "./pages/DataQuality";
 import RiskAnalytics from "./pages/RiskAnalytics";
 import FraudDetection from "./pages/FraudDetection";
