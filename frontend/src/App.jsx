@@ -1,9 +1,8 @@
 
 import { useState } from "react";
 
-import Sidebar from "./components/sidebar";
-
-import Dashboard from "./pages/dashboard";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
 import Claims from "./pages/claims";
 import Policies from "./pages/Policies";
 import InvestigatorWorkbench from "./pages/InvestigatorWorkbench";
