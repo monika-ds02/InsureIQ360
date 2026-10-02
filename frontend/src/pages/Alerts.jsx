@@ -20,19 +20,19 @@ function Alerts() {
         investigatorResponse,
         slaResponse,
       ] = await Promise.all([
-        fetch("${import.meta.env.VITE_API_URL}/alerts/", {
+        fetch(`${import.meta.env.VITE_API_URL}/alerts/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }),
 
-        fetch("${import.meta.env.VITE_API_URL}/alerts/investigator", {
+        fetch(`${import.meta.env.VITE_API_URL}/alerts/investigator`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }),
 
-        fetch("${import.meta.env.VITE_API_URL}/alerts/sla-breach", {
+        fetch(`${import.meta.env.VITE_API_URL}/alerts/sla-breach`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -247,3 +247,4 @@ function Alerts() {
 }
 
 export default Alerts;
+

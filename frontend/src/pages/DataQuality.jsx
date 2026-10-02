@@ -14,7 +14,7 @@ function DataQuality() {
 
 
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/data-quality/",
+        `${import.meta.env.VITE_API_URL}/data-quality/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -259,3 +259,4 @@ function DataQuality() {
 
 
 export default DataQuality;
+

@@ -17,7 +17,7 @@ function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("${import.meta.env.VITE_API_URL}/claims/dashboard", {
+    fetch(`${import.meta.env.VITE_API_URL}/claims/dashboard`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -222,3 +222,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+

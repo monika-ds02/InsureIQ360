@@ -8,7 +8,7 @@ function Claims() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("${import.meta.env.VITE_API_URL}/claims/", {
+    fetch(`${import.meta.env.VITE_API_URL}/claims/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -82,3 +82,4 @@ function Claims() {
 }
 
 export default Claims;
+

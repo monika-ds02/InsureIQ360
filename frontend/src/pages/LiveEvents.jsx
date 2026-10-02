@@ -8,7 +8,7 @@ function LiveEvents() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("${import.meta.env.VITE_API_URL}/events/", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/events/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -98,3 +98,4 @@ function LiveEvents() {
 }
 
 export default LiveEvents;
+

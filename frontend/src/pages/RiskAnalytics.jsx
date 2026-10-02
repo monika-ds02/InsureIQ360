@@ -15,7 +15,7 @@ function RiskAnalytics() {
 
 
       const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/risk-analytics/",
+        `${import.meta.env.VITE_API_URL}/risk-analytics/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -247,3 +247,4 @@ function RiskAnalytics() {
 
 
 export default RiskAnalytics;
+

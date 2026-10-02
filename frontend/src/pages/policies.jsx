@@ -8,7 +8,7 @@ function Policies() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("${import.meta.env.VITE_API_URL}/policies/", {
+    fetch(`${import.meta.env.VITE_API_URL}/policies/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -81,3 +81,4 @@ function Policies() {
 }
 
 export default Policies;
+

@@ -8,7 +8,7 @@ function ReserveForecast() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("${import.meta.env.VITE_API_URL}/reserve-forecast/", {
+    fetch(`${import.meta.env.VITE_API_URL}/reserve-forecast/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -105,3 +105,4 @@ function ReserveForecast() {
 }
 
 export default ReserveForecast;
+

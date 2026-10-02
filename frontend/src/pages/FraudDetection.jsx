@@ -7,7 +7,7 @@ function FraudDetection() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("${import.meta.env.VITE_API_URL}/fraud-detection/", {
+    fetch(`${import.meta.env.VITE_API_URL}/fraud-detection/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         Accept: "*/*",
@@ -129,3 +129,4 @@ function FraudDetection() {
 }
 
 export default FraudDetection;
+
