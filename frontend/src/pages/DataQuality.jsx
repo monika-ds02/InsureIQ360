@@ -14,7 +14,7 @@ function DataQuality() {
 
 
       const response = await fetch(
-        "http://127.0.0.1:8000/data-quality/",
+        "${import.meta.env.VITE_API_URL}/data-quality/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

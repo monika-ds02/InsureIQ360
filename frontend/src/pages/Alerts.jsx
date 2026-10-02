@@ -20,19 +20,19 @@ function Alerts() {
         investigatorResponse,
         slaResponse,
       ] = await Promise.all([
-        fetch("http://127.0.0.1:8000/alerts/", {
+        fetch("${import.meta.env.VITE_API_URL}/alerts/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }),
 
-        fetch("http://127.0.0.1:8000/alerts/investigator", {
+        fetch("${import.meta.env.VITE_API_URL}/alerts/investigator", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }),
 
-        fetch("http://127.0.0.1:8000/alerts/sla-breach", {
+        fetch("${import.meta.env.VITE_API_URL}/alerts/sla-breach", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -71,7 +71,7 @@ function Alerts() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/alerts/acknowledge/INV-${claimId}`,
+        `${import.meta.env.VITE_API_URL}/alerts/acknowledge/INV-${claimId}`,
         {
           method: "PUT",
           headers: {

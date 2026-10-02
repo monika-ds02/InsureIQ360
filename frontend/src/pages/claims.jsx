@@ -8,7 +8,7 @@ function Claims() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://127.0.0.1:8000/claims/", {
+    fetch("${import.meta.env.VITE_API_URL}/claims/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

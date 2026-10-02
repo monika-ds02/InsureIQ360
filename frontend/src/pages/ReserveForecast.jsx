@@ -8,7 +8,7 @@ function ReserveForecast() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://127.0.0.1:8000/reserve-forecast/", {
+    fetch("${import.meta.env.VITE_API_URL}/reserve-forecast/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

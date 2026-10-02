@@ -23,7 +23,7 @@ function InvestigatorWorkbench() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://127.0.0.1:8000/claims/${claimId.trim()}`,
+        `${import.meta.env.VITE_API_URL}/claims/${claimId.trim()}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

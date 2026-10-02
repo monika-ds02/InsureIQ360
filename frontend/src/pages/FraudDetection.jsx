@@ -7,7 +7,7 @@ function FraudDetection() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/fraud-detection/", {
+    fetch("${import.meta.env.VITE_API_URL}/fraud-detection/", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         Accept: "*/*",
