@@ -138,6 +138,31 @@ async def claim_frequency(
 
 
 # =========================
+# KPI - CLAIM SEVERITY
+# =========================
+
+@router.get("/kpi/claim-severity")
+async def claim_severity(
+    current_user: dict = Depends(get_current_user)
+):
+    con = get_connection()
+
+    try:
+        result = con.execute("""
+            SELECT
+                COALESCE(AVG(claim_amount), 0)
+            FROM fact_claims
+        """).fetchone()
+
+        return {
+            "claim_severity": round(result[0], 2)
+        }
+
+    finally:
+        con.close()
+
+
+# =========================
 # CLAIMS SUMMARY BY CUSTOMER
 # =========================
 
