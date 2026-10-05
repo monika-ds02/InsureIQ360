@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta, timezone
 
 from jose import JWTError, jwt
@@ -7,8 +8,10 @@ from pwdlib import PasswordHash
 # =========================================================
 # JWT CONFIGURATION
 # =========================================================
-
-SECRET_KEY = "insureiq360-secret-key-change-this"
+SECRET_KEY = os.getenv(
+    "JWT_SECRET_KEY",
+    "insureiq360-secret-key-change-this"
+)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
