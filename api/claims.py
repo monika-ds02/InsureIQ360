@@ -161,6 +161,52 @@ async def claim_severity(
     finally:
         con.close()
 
+# =========================
+# KPI - LOSS RATIO
+# =========================
+
+@router.get("/kpi/loss-ratio")
+async def loss_ratio(
+    current_user: dict = Depends(get_current_user)
+):
+    con = get_connection()
+
+    try:
+        claim_result = con.execute("""
+            SELECT COALESCE(SUM(claim_amount), 0)
+            FROM fact_claims
+        """).fetchone()
+
+        premium_result = con.execute("""
+            SELECT COALESCE(SUM(premium), 0)
+            FROM policies
+        """).fetchone()
+
+        total_claim_amount = claim_result[0]
+        total_premium = premium_result[0]
+
+        if total_premium == 0:
+            return {
+                "loss_ratio": 0
+            }
+
+        return {
+            "loss_ratio": round(
+                (total_claim_amount / total_premium) * 100,
+                2
+            )
+        }
+
+    except Exception as e:
+        print("LOSS RATIO ERROR:", repr(e))
+        raise HTTPException(
+            status_code=500,
+            detail=f"Loss ratio error: {str(e)}"
+        )
+
+    finally:
+        con.close()
+
 
 # =========================
 # CLAIMS SUMMARY BY CUSTOMER
@@ -405,7 +451,6 @@ async def create_claim(
             status=result[4]
         )
 
-        # Publish claim-created event to Kafka
         publish_claim_event({
             "claim_id": created_claim.claim_id,
             "customer_id": created_claim.customer_id,

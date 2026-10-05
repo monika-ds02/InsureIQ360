@@ -15,7 +15,6 @@ env/
 
 # DuckDB / local database
 *.duckdb
-!dbt_insureiq360/dev.duckdb
 *.duckdb.wal
 
 # Airflow

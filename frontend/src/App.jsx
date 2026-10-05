@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 import Sidebar from "./components/sidebar";
@@ -9,6 +8,10 @@ import Login from "./pages/login";
 import DataQuality from "./pages/DataQuality";
 import RiskAnalytics from "./pages/RiskAnalytics";
 import FraudDetection from "./pages/FraudDetection";
+import InvestigatorWorkbench from "./pages/InvestigatorWorkbench";
+import ReserveForecast from "./pages/ReserveForecast";
+import Alerts from "./pages/Alerts";
+import LiveEvents from "./pages/LiveEvents";
 
 import "./App.css";
 
@@ -47,6 +50,9 @@ function App() {
 
       case "Alerts":
         return <Alerts />;
+
+      case "Live Kafka Events":
+        return <LiveEvents />;
 
       case "Data Quality":
         return <DataQuality />;
@@ -98,4 +104,3 @@ function App() {
 }
 
 export default App;
-
